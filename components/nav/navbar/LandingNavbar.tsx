@@ -15,13 +15,34 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/nav-menu"
 
+import { Button } from "../../ui/button"
+import { ThemeToggle } from "../../ui/theme-toggle"
+
 const LandingNavbar = () => {
   return (
-    <div className="w-full h-12 border-b flex items-center container mx-auto">
-      <div>
-        <Demo />
+    <nav className="fixed left-0 top-0 w-full h-16 shadow-sm bg-white dark:bg-gray-950">
+      <div className="flex items-center justify-between  h-full px-4 md:px-8">
+        <section className="flex items-center">
+          <Link href="/" className="mr-4">
+            Logo
+          </Link>
+          <div className="hidden md:block">
+            <Demo />
+          </div>
+        </section>
+        <section className="flex items-center gap-4">
+          <Link href="/sign-in">
+            <Button variant="outline" className="rounded-full">
+              Login
+            </Button>
+          </Link>
+          <Link href="/sign-up">
+            <Button className="rounded-full">Get Started</Button>
+          </Link>
+          <ThemeToggle />
+        </section>
       </div>
-    </div>
+    </nav>
   )
 }
 
