@@ -1,0 +1,12 @@
+version: "2.19.1"
+services:
+  management_front:
+    build: "./alpha"
+    container_name: "frontend_management_c"
+    ports:
+      - "3000:3000"
+  management_back:
+    build: "./backend"
+    container_name: "backend_management_c"
+    ports:
+      - "5000:5000"
