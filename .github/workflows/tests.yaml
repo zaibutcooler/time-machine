@@ -1,0 +1,32 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - main # Change this to your main branch name if different
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: pip install -r user_auth_service/requirements.txt
+        # You might need to adjust the path to requirements.txt for other services
+
+      - name: Run user_auth_service tests
+        run: pytest user_auth_service/tests
+
+      - name: Run task_management_service tests
+        run: pytest task_management_service/tests
+
+      - name: Run notification_service tests
+        run: pytest notification_service/tests
