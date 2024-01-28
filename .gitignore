@@ -9,6 +9,7 @@ env/
 
 # Jupyter Notebook
 .ipynb_checkpoints/
+.pytest_cache/
 
 # Model artifacts and data files
 *.h5
