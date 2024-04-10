@@ -1,6 +1,11 @@
 from fastapi import FastAPI
-from app.api import user #, auth
+from api import user,auth #, auth
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+database_url = os.environ.get('DATABASE_URL')
 
 app = FastAPI()
 
@@ -13,3 +18,4 @@ app.add_middleware(
 )
 
 app.include_router(user.router)
+app.include_router(auth.router)
